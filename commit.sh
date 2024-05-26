@@ -14,12 +14,13 @@ if [ -z $file_name ]; then
 fi
 
 message=""
+found=0
 #run through the rows of the csv file
 while IFS=, read -r ID Desc Branch Developer Priorty URL
 do
     #check the branch name
     if [ $Branch == $(git branch --show-current) ]; then
-
+        found=1
         #build the commit message
         if [ $dev_desc == "null" ]; then
             message=$ID:$(date "+%Y-%m-%d %H:%M:%S"):$Branch:$Developer:$Priorty:$Desc
@@ -39,3 +40,7 @@ do
     fi
 done < $file_name
 
+if [ $found -eq 0 ]; then
+    echo $Branch branch not found in $file_name
+
+fi
