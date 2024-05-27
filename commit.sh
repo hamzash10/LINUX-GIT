@@ -35,12 +35,13 @@ do
         git commit -m "$message"
 
         #push to github 
-        git push $URL $Branch
+        if ! git push $URL $Branch; then
+            echo "Error: Failed to push to Github"
+        fi
 
     fi
 done < $file_name
 
 if [ $found -eq 0 ]; then
     echo $Branch branch not found in $file_name
-
 fi
