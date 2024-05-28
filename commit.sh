@@ -2,8 +2,8 @@
 
 #check if there is a dev description
 dev_desc="null"
-if [ $# -eq 1 ]; then
-    dev_desc=$1
+if [ $# -ge 1 ]; then
+    dev_desc=$@
 fi
 
 #check if the .csv file exsist
@@ -22,7 +22,7 @@ do
     if [ $Branch == $(git branch --show-current) ]; then
         found=1
         #build the commit message
-        if [ $dev_desc == "null" ]; then
+        if [[ $dev_desc == "null" ]]; then
             message=$ID:$(date "+%Y-%m-%d %H:%M:%S"):$Branch:$Developer:$Priorty:$Desc
         else
              message=$ID:$(date "+%Y-%m-%d %H:%M:%S"):$Branch:$Developer:$Priorty:$Desc:$dev_desc
