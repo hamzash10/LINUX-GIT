@@ -2,7 +2,7 @@
 
 #check if there is a dev description
 dev_desc="null"
-if [ $# -eq 1 ]; then
+if [ $# -ge 1 ]; then
     dev_desc=$@
 fi
 
