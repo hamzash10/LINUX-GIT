@@ -3,7 +3,7 @@
 #check if there is a dev description
 dev_desc="null"
 if [ $# -eq 1 ]; then
-    dev_desc="$1"
+    dev_desc=("$@")
 fi
 
 #check if the .csv file exsist
