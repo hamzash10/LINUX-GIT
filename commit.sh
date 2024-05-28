@@ -6,6 +6,7 @@ if [ $# -eq 1 ]; then
     dev_desc=("$@")
 fi
 
+echo $dev_desc
 #check if the .csv file exsist
 file_name=$(ls *.csv)
 if [ -z $file_name ]; then
