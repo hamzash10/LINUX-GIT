@@ -25,7 +25,7 @@ do
         if [ $dev_desc == "null" ]; then
             message=$ID:$(date "+%Y-%m-%d %H:%M:%S"):$Branch:$Developer:$Priorty:$Desc
         else
-             message=$ID:$(date "+%Y-%m-%d %H:%M:%S"):$Branch:$Developer:$Priorty:$Desc:"$dev_desc"
+             message=$ID:$(date "+%Y-%m-%d %H:%M:%S"):$Branch:$Developer:$Priorty:$Desc:$dev_desc
         fi
 
         #add changes to staging area
